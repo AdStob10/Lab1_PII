@@ -21,7 +21,6 @@ class ModelAI:
     def z_pliku(cls, nazwa_pliku):
         with open(nazwa_pliku, mode="r") as f:
             j = json.loads(f.read())
-            #linie = f.readlines()[1:-1]
             name = j["name"]
             version = j["version"]
             return cls(name, version)

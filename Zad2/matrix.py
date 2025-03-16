@@ -1,23 +1,27 @@
 class Matrix:
-    def __int__(self, a, b, c, d):
-        self.matrix = [a, b, c, d]
+    def __init__(self,a,b,c,d):
+        self.a=a
+        self.b=b
+        self.c=c
+        self.d=d
 
     def __add__(self, other):
-        tmp = []
-        for i in range(len(self.matrix)):
-            tmp.append(self.matrix[i] + other.matrix[i])
-        return tmp
+        a = self.a + other.a
+        b = self.b + other.b
+        c = self.c + other.c
+        d = self.d + other.d
+        return Matrix(a,b,c,d)
 
     # a =
     def __mul__(self, other):
-        a = self.matrix[0] * other.matrix[0] + self.matrix[1] * other.matrix[2]
-        b = self.matrix[0] * other.matrix[1] + self.matrix[1] * other.matrix[3]
-        c = self.matrix[2] * other.matrix[1] + self.matrix[3] * other.matrix[3]
-        d = self.matrix[2] * other.matrix[1] + self.matrix[3] * other.matrix[3]
+        a = self.a * other.a + self.b * other.c
+        b = self.a * other.b + self.b * other.d
+        c = self.c * other.a + self.d * other.c
+        d = self.c * other.b + self.d * other.d
         return Matrix(a, b, c, d)
 
     def __str__(self):
-        return f"[{self.matrix[0]}{self.matrix[1]}; \n {self.matrix[2]}{self.matrix[3]}]"
+        return f"[{self.a} {self.b}; \n {self.c} {self.d}]"
 
     def __repr__(self):
-        return f"Matrix({self.matrix[0]}, {self.matrix[1]}, {self.matrix[2]}, {self.matrix[3]})"
+        return f"Matrix({self.a}, {self.b}, {self.c}, {self.d})"
