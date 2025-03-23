@@ -1,17 +1,20 @@
-def fibb_rec(n):
-    if n == 0:
-        return 0
-
-    if n == 1:
-        return 1
-
-    return fibb_rec(n - 1) + fibb_rec(n - 2)
-
 
 def fibb_gen(n):
     i = 0
+    a = 0
+    b = 1
+
+
     while i < n:
-        yield fibb_rec(i)
+        if i == 0:
+            yield a
+
+        if i == 1:
+            yield b
+        tmp = b
+        b = a + b
+        a = tmp
+        yield b
         i += 1
 
 
