@@ -1,0 +1,62 @@
+body {
+    background: #c7dcff;
+}
+
+.task-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.task-list-ul {
+    list-style: none;
+}
+
+.task-list-ul a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.task-list-ul a:hover {
+    color:red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+    row-gap: 5vh;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    border-radius: 5px;
+    background-color: #b8c5d9;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #b8c5d9;
+    color: #6497e8;
+}
+
+button:hover {
+    color: cornflowerblue;
+}
+
+
+label {
+   color: #6497e8;
+}
+
+h1 {
+    color: #7e96bd;
+}

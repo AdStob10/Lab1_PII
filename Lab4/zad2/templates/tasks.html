@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zadań</title>
+     <link rel="stylesheet" type="text/css" href="../static/style.css"></link>
+</head>
+<body>
+        <div class="task-list">
+        <h1>Lista Zadań</h1>
+            {% if tasks|length > 0 %}
+            <ul class="task-list-ul">
+                {% for idx in tasks %}
+                <li>
+                    <div>
+                        {% if tasks[idx].done %}
+                            <span class="task-list-title"><s>{{tasks[idx].name}}</s></span>
+                        {% else %}
+                            <span class="task-list-title">{{tasks[idx].name}}</span>
+                        {% endif %}
+                    </div>
+                    <div>
+                    <p class="task-list-description">Opis: {{tasks[idx].description}}</p>
+                    </div>
+
+                        <ul>
+                            {% if tasks[idx].done == False %}
+                            <li>
+                                <a href="{{ url_for('done', task_id=idx) }}">Zakończ</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                 <a href="{{ url_for('delete', task_id=idx) }}">Usuń</a>
+                            </li>
+                        </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <div>Nie masz żadnych zadań :)</div>
+            {% endif %}
+        </div>
+
+    <div>
+        <form method="POST">
+           <h1>Dodaj nowe zadanie</h1>
+                <label>
+                    Nazwa: <input type="text" name="name" />
+                </label>
+
+                <label>
+                    Opis: <textarea  name="description"></textarea>
+                </label>
+            <button type="submit">Dodaj nowe zadanie</button>
+        </form>
+    </div>
+
+</body>
+</html>
